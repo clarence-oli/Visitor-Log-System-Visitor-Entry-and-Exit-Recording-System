@@ -1,0 +1,92 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class VisitorSystem {
+    protected ArrayList<Visitor> visitors = new ArrayList<>();
+    protected Scanner scanner = new Scanner(System.in);
+
+    // ADD VISITOR
+    public void addVisitor() {
+        System.out.print("Enter Name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter Purpose: ");
+        String purpose = scanner.nextLine();
+
+        System.out.print("Enter Date (MM/DD/YYYY): ");
+        String date = scanner.nextLine();
+
+        System.out.print("Enter Time-In (HH:MM): ");
+        String timeIn = scanner.nextLine();
+
+        visitors.add(new Visitor(name, purpose, date, timeIn));
+        System.out.println("Visitor added successfully!\n");
+    }
+
+    // EXIT VISITOR
+    public void exitVisitor() {
+        System.out.print("Enter Name for Time-Out: ");
+        String name = scanner.nextLine();
+
+        for (Visitor v : visitors) {
+            if (v.getName().equalsIgnoreCase(name)) {
+                System.out.print("Enter Time-Out (HH:MM): ");
+                String timeOut = scanner.nextLine();
+                v.setTimeOut(timeOut);
+                System.out.println("Time-Out recorded!\n");
+                return;
+            }
+        }
+        System.out.println("Visitor not found.\n");
+    }
+
+    // SEARCH VISITOR
+    public void searchVisitor() {
+        System.out.println("Search by:");
+        System.out.println("1 - Name");
+        System.out.println("2 - Date");
+        System.out.println("3 - Time-In");
+        System.out.print("Choose: ");
+        int choice = Integer.parseInt(scanner.nextLine());
+
+        System.out.print("Enter keyword: ");
+        String keyword = scanner.nextLine();
+
+        boolean found = false;
+
+        for (Visitor v : visitors) {
+            if ((choice == 1 && v.getName().equalsIgnoreCase(keyword)) ||
+                    (choice == 2 && v.getDate().equals(keyword)) ||
+                    (choice == 3 && v.getTimeIn().equals(keyword))) {
+
+                printVisitor(v);
+                found = true;
+            }
+        }
+
+        if (!found) System.out.println("No results found.\n");
+    }
+
+    // VIEW ALL
+    public void viewVisitors() {
+        if (visitors.isEmpty()) {
+            System.out.println("No visitors logged yet.\n");
+            return;
+        }
+
+        for (Visitor v : visitors) {
+            printVisitor(v);
+        }
+    }
+
+    // FORMAT PRINTER
+    protected void printVisitor(Visitor v) {
+        System.out.println("---------------------------");
+        System.out.println("Name: " + v.getName());
+        System.out.println("Purpose: " + v.getPurpose());
+        System.out.println("Date: " + v.getDate());
+        System.out.println("Time-In: " + v.getTimeIn());
+        System.out.println("Time-Out: " + v.getTimeOut());
+        System.out.println("---------------------------\n");
+    }
+}
