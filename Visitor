@@ -1,0 +1,30 @@
+public class Visitor {
+    private String name;
+    private String purpose;
+    private String date;
+    private String timeIn;
+    private String timeOut;
+
+    public Visitor(String name, String purpose, String date, String timeIn) {
+        this.name = name;
+        this.purpose = purpose;
+        this.date = date;
+        this.timeIn = timeIn;
+        this.timeOut = "N/A";
+    }
+
+    public String getName() {
+        return name; }
+    public String getPurpose() {
+        return purpose; }
+    public String getDate() {
+        return date; }
+    public String getTimeIn() {
+        return timeIn; }
+    public String getTimeOut() {
+        return timeOut; }
+
+    public void setTimeOut(String timeOut) {
+        this.timeOut = timeOut;
+    }
+}
