@@ -1,0 +1,72 @@
+public class Main extends VisitorSystem {
+
+    public static void main(String[] args) {
+        Main system = new Main();
+        system.login();
+        system.menu();
+    }
+
+    //LOGIN
+    public void login() {
+        final String username = "security";
+        final String password = "bsu-lipa1234";
+
+        while (true) {
+            System.out.println("============ Welcome to Visitor Login System ============\n");
+            System.out.println("========== SECURITY LOGIN ===========");
+
+            System.out.print("Enter username: ");
+            String user = scanner.nextLine();
+
+            System.out.print("Enter password: ");
+            String pass = scanner.nextLine();
+
+            if (user.equals(username) && pass.equals(password)) {
+                System.out.println("Welcome " + username + "!");
+                break;
+            } else {
+                System.out.println("Invalid username or password!.\n");
+            }
+        }
+    }
+
+    //MAIN MENU
+    public void menu() {
+        while (true) {
+            System.out.println("\n=== VISITOR LOG SYSTEM ===");
+            System.out.println("1 - Add Visitor");
+            System.out.println("2 - Exit Visitor");
+            System.out.println("3 - Search Visitor");
+            System.out.println("4 - View All Visitors");
+            System.out.println("5 - Exit Program");
+
+            System.out.print("Choose: ");
+            int choice = Integer.parseInt(scanner.nextLine());
+
+            switch (choice) {
+                case 1:
+                    addVisitor();
+                    break;
+                case 2:
+                    exitVisitor();
+                    break;
+
+                case 3:
+                    searchVisitor();
+                    break;
+
+                case 4:
+                    viewVisitors();
+                    break;
+
+                case 5:
+                    System.out.println("Goodbye!");
+                    return;   // exits program
+
+                default:
+                    System.out.println("Invalid choice.\n");
+                    break;
+            }
+        }
+    }
+}
