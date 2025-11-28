@@ -1,0 +1,45 @@
+// SystemInfo.java
+public class SystemInfo {
+    private String projectTitle = "Visitor Log System: Visitor Entry and Exit Recording System";
+    private String client = "Batangas State University - Lipa Campus (Security/Reception Office)";
+    private String developer = "Name";
+    private String contact = "Email";
+    private String version = "1.0";
+    private String createDate = "December 12, 2025";
+    private String description = "The Visitor Log System is a Java console-based application created for the security and reception staff of Batangas State University - Lipa Campus. This system records and monitors visitor entry and exit in a clear, organized, and easy-to-use format.";
+
+    private String[] features = {
+            "Add Visitor",
+            "Exit Visitor",
+            "Search Visitor",
+            "View All Visitors",
+            "System Information",
+            "Exit Program"
+    };
+
+    public void display() {
+        String line = repeatChar("=", 60);
+        System.out.println(line);
+
+System.out.println(centerText("SYSTEM INFORMATION", 60));
+        System.out.println(line);
+        System.out.println("Project Title: " + projectTitle);
+
+System.out.println("Client: " + client);
+
+System.out.println("Developer: " + developer + " (Contact: " + contact + ")");
+
+System.out.println("Version: " + version);
+        System.out.println("Created Date : " + createdDate);
+        System.out.println();
+        System.out.println("Purpose:");
+        System.out.println(" " + description);
+        System.out.println();
+        System.out.println("Main Features:");
+
+        // Not yet done...
+
+    }
+
+    }
+}
